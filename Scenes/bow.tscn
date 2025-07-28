@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbm8l31dlxh0l"]
+
+[ext_resource type="PackedScene" uid="uid://dxrdikh1y4qf2" path="res://Scenes/interactable.tscn" id="1_3cct7"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_ju2r0"]
+[ext_resource type="Script" uid="uid://c4onubgop7ca7" path="res://Scripts/inventory_item.gd" id="3_ju2r0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw0bs"]
+atlas = ExtResource("2_ju2r0")
+region = Rect2(88, 56, 8, 8)
+
+[sub_resource type="Resource" id="Resource_mkdf0"]
+script = ExtResource("3_ju2r0")
+item_id = "e_bow"
+item_name = "Bow"
+item_description = "A simple bow crafted from an ancient tree"
+item_icon = SubResource("AtlasTexture_vw0bs")
+item_stackable = false
+item_equipable = true
+behavior_method = "use_bow"
+metadata/_custom_type_script = "uid://c4onubgop7ca7"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sas2l"]
+atlas = ExtResource("2_ju2r0")
+region = Rect2(88, 56, 8, 8)
+
+[node name="Bow" instance=ExtResource("1_3cct7")]
+item_pickup = SubResource("Resource_mkdf0")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_sas2l")

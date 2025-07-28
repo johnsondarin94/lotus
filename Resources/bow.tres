@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://d2geu5vgwa8d2"]
+
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_i6n31"]
+[ext_resource type="Script" uid="uid://c4onubgop7ca7" path="res://Scripts/inventory_item.gd" id="2_nn3dx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaaxm"]
+atlas = ExtResource("1_i6n31")
+region = Rect2(88, 56, 8, 8)
+
+[resource]
+script = ExtResource("2_nn3dx")
+item_id = "e_bow"
+item_name = "Bow"
+item_description = "A simple bow crafted from an ancient wood"
+item_icon = SubResource("AtlasTexture_eaaxm")
+item_stackable = false
+item_equipable = true
+behavior_method = "use_bow"

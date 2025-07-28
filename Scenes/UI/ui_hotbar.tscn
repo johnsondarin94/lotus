@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyjh2c8a6cmbw"]
+
+[ext_resource type="PackedScene" uid="uid://cvlwqit1l3ew3" path="res://Scenes/UI/equipped_item.tscn" id="1_huwks"]
+[ext_resource type="PackedScene" uid="uid://cok3qbc6k3cip" path="res://Scenes/UI/item.tscn" id="2_1bij0"]
+
+[node name="UIHotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EquippedItem" parent="." instance=ExtResource("1_huwks")]
+layout_mode = 1
+offset_right = -1232.0
+offset_bottom = -672.0
+
+[node name="Item" parent="." instance=ExtResource("2_1bij0")]
+layout_mode = 1
+offset_left = 80.0
+offset_right = -1152.0
+offset_bottom = -672.0

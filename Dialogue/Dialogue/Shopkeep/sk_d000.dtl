@@ -1,0 +1,16 @@
+if {spoke_to_shopkeep} != true:
+	shopkeep: Welcome in.
+	A sensation overwhelms you as you enter in the store.
+	You stare at the shopkeep as your minds intertwine, your thoughts become theirs and theirs becomes yours.
+	Without opening their fungal orifice, the one you have always recognized as their mouth,  they begin to speak into you.
+	shopkeep: We have agreed to briefly invite you into our collective.
+	The shopkeep doesn't look at you however, you can't help but feel as if he is peering into your very being. 
+	shopkeep: While not directly linked, you will be able to communicate with us along your journey.
+	shopkeep: Approach, and the link you are experiencing now will reconnect.
+	shopkeep: Throughout the Mystwood there are patches of us scattered, observing... listening... feeling....
+	shopkeep: We offer what support we can.
+	shopkeep: Our forest is sick, the festival has begun, the time to restore the Mystwood to it's once peaceful state is now.
+	shopkeep: Safe travels and may the Mystwood guide you. 
+	set {spoke_to_shopkeep} = true
+else:
+	shopkeep: Is there something I can do for you?

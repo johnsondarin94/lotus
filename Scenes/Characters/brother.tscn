@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://de2h12blo2t2b"]
+
+[ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_2shxx"]
+[ext_resource type="Texture2D" uid="uid://6f8pacn7i07p" path="res://Assets/child.png" id="2_h8wvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81x8b"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ynj6"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1byls"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lppd7"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcnm1"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8atv"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1yk6"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw5e0"]
+atlas = ExtResource("2_h8wvd")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvd14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81x8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ynj6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1byls")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lppd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcnm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8atv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1yk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw5e0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Brother" instance=ExtResource("1_2shxx")]
+custom_frames = SubResource("SpriteFrames_hvd14")

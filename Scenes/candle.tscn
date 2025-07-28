@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0vjk1a0lknj0"]
+
+[ext_resource type="Script" uid="uid://dhn70ynu1576s" path="res://Scripts/candle.gd" id="1_45ia7"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_enbgb"]
+[ext_resource type="Script" uid="uid://b7pfe6qt0nsau" path="res://Scripts/point_light_2d_2.gd" id="3_oi8ik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsvjb"]
+atlas = ExtResource("1_enbgb")
+region = Rect2(24, 56, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45ia7"]
+size = Vector2(8, 8)
+
+[sub_resource type="Gradient" id="Gradient_45ia7"]
+offsets = PackedFloat32Array(0.190883, 0.615385)
+colors = PackedColorArray(1, 0.576471, 0, 1, 0, 0, 0, 1)
+metadata/_snap_count = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oi8ik"]
+gradient = SubResource("Gradient_45ia7")
+fill = 1
+fill_from = Vector2(0.525641, 0.478632)
+fill_to = Vector2(0, 0)
+
+[node name="Candle" type="StaticBody2D"]
+script = ExtResource("1_45ia7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xsvjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_45ia7")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.342516, 0.342516)
+energy = 1.66
+texture = SubResource("GradientTexture2D_oi8ik")
+texture_scale = 0.29
+script = ExtResource("3_oi8ik")

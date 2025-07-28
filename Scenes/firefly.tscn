@@ -1,0 +1,150 @@
+[gd_scene load_steps=20 format=3 uid="uid://nkdu8th14i34"]
+
+[ext_resource type="Texture2D" uid="uid://l70vdkouulb8" path="res://Assets/firefly_animation-Sheet.png" id="1_d6ncm"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_nw82r"]
+[ext_resource type="Script" uid="uid://bmljr7rx804om" path="res://Scripts/firefly.gd" id="1_wh1ru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgv3b"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgkpf"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tt1u"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d8bi"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h0oq"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukvk1"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p4j6"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i8mj"]
+atlas = ExtResource("1_d6ncm")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whobm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgv3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgkpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tt1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d8bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h0oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukvk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p4j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i8mj")
+}],
+"loop": true,
+"name": &"wander",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh1ru"]
+atlas = ExtResource("1_nw82r")
+region = Rect2(80, 72, 8, 8)
+
+[sub_resource type="Curve" id="Curve_nw82r"]
+_data = [Vector2(0.0630631, 0.953461), 0.0, 0.0, 0, 0, Vector2(0.522522, 0.681981), 3.25675, 3.25675, 0, 0, Vector2(0.930931, 0.100239), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d6ncm"]
+curve = SubResource("Curve_nw82r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nw82r"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 19.45
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+velocity_limit_curve = SubResource("CurveTexture_d6ncm")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+turbulence_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_nw82r"]
+offsets = PackedFloat32Array(0.247863, 0.660969)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d6ncm"]
+gradient = SubResource("Gradient_nw82r")
+fill = 1
+fill_from = Vector2(0.491453, 0.491453)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh1ru"]
+size = Vector2(56, 57)
+
+[node name="Firefly" type="Node2D"]
+script = ExtResource("1_wh1ru")
+SPEED = 0.3
+MAX_TEXTURE_SCALE = 3.0
+MAX_ENERGY = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_whobm")
+animation = &"wander"
+autoplay = "wander"
+frame_progress = 0.75914
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 2
+texture = SubResource("AtlasTexture_wh1ru")
+lifetime = 0.31
+preprocess = 0.19
+process_material = SubResource("ParticleProcessMaterial_nw82r")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 1
+position = Vector2(3.8147e-06, -0.999996)
+scale = Vector2(0.347342, 0.347342)
+color = Color(0.536713, 0.4278, 0.62, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter_smooth = 30.2
+texture = SubResource("GradientTexture2D_d6ncm")
+texture_scale = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="LightBurstTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wh1ru")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="LightBurstTimer" to="." method="_on_light_burst_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

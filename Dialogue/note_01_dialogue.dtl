@@ -1,0 +1,4 @@
+[signal arg="start_dialogue"]
+join note center
+This is supposed to be note 01
+[signal arg="end_dialogue"]

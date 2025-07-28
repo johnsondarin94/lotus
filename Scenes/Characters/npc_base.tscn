@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://sld3axofkf1o"]
+
+[ext_resource type="Script" uid="uid://baeslonfolalp" path="res://Scenes/Characters/npc.gd" id="1_pbdkk"]
+[ext_resource type="Texture2D" uid="uid://3bqxsvmtf5tb" path="res://Assets/npc.png" id="2_6usod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kuio"]
+atlas = ExtResource("2_6usod")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5tfy"]
+atlas = ExtResource("2_6usod")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpwc3"]
+atlas = ExtResource("2_6usod")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cofpr"]
+atlas = ExtResource("2_6usod")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tvl7"]
+atlas = ExtResource("2_6usod")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyb3v"]
+atlas = ExtResource("2_6usod")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5or3"]
+atlas = ExtResource("2_6usod")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heyad"]
+atlas = ExtResource("2_6usod")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rldw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kuio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5tfy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpwc3")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cofpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tvl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyb3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5or3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heyad")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbtxt"]
+size = Vector2(6, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uleaj"]
+size = Vector2(14.5, 15.5)
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_pbdkk")
+dialogue = "test_dialogue"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rldw1")
+animation = &"walk"
+frame_progress = 0.288134
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_rbtxt")
+
+[node name="PlayerDetected" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetected"]
+shape = SubResource("RectangleShape2D_uleaj")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="PlayerDetected" to="." method="_on_player_detected_body_entered"]
+[connection signal="body_exited" from="PlayerDetected" to="." method="_on_player_detected_body_exited"]

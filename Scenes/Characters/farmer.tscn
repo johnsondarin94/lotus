@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c587gux1p86om"]
+
+[ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_kf3if"]
+
+[node name="Farmer" instance=ExtResource("1_kf3if")]

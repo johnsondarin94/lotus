@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://duqx6j7fdcgu3"]
+
+[ext_resource type="Script" uid="uid://cphsnkbuhrskk" path="res://Scripts/door.gd" id="1_6xubt"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_hayyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owj2a"]
+atlas = ExtResource("2_hayyf")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_biw5o"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7fhh"]
+size = Vector2(8, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1m8q"]
+atlas = ExtResource("2_hayyf")
+region = Rect2(48, 8, 8, 8)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_6xubt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_owj2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_biw5o")
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("RectangleShape2D_w7fhh")
+
+[node name="CanvasLayer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 4.0
+offset_bottom = -4.0
+texture = SubResource("AtlasTexture_c1m8q")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Detector" to="." method="_on_detector_input_event"]

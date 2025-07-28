@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cjdgk3aj7vx6q"]
+
+[ext_resource type="Script" uid="uid://c4onubgop7ca7" path="res://Scripts/inventory_item.gd" id="1_2rj11"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_gkjxc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8xei"]
+atlas = ExtResource("1_gkjxc")
+region = Rect2(24, 32, 8, 8)
+
+[resource]
+script = ExtResource("1_2rj11")
+item_id = "e_sword"
+item_name = "Sword"
+item_description = "Cheap iron sword, feels like it might break at any moment."
+item_icon = SubResource("AtlasTexture_m8xei")
+item_stackable = false
+item_equipable = true
+behavior_method = "use_sword"

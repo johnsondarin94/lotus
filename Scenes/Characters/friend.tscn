@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgo6kboei2of6"]
+
+[ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_354d5"]
+[ext_resource type="Texture2D" uid="uid://dk6w8u6kfacac" path="res://Assets/friend.png" id="2_p2q10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dddc0"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0e4h"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rainr"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62jxu"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqq57"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqipd"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt1ty"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8hjv"]
+atlas = ExtResource("2_p2q10")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iok3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dddc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0e4h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rainr")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62jxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqq57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqipd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt1ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8hjv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Friend" instance=ExtResource("1_354d5")]
+dialogue = "f_d000"
+custom_frames = SubResource("SpriteFrames_iok3l")

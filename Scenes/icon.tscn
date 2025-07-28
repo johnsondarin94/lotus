@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd1jnyy7f2y24"]
+
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_5mdah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhpjb"]
+atlas = ExtResource("1_5mdah")
+region = Rect2(48, 8, 8, 8)
+
+[node name="Icon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = SubResource("AtlasTexture_uhpjb")

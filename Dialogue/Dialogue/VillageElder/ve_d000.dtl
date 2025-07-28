@@ -1,0 +1,4 @@
+if {spoke_to_shopkeep} == true:
+	jump ve_d001/
+"Village Elder": Please, go enjoy yourself and be sure to say goodbye to your loved ones.
+"Village Elder": Come see me when you are ready to depart.

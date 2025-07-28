@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf5cyh86kk5hk"]
+
+[ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_l7hin"]
+[ext_resource type="Script" uid="uid://berokngkg72gb" path="res://Scenes/Characters/shopkeep.gd" id="2_rhrnk"]
+[ext_resource type="Texture2D" uid="uid://bf6jo1blc7i16" path="res://Assets/shopkeep.png" id="3_rhrnk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhrnk"]
+atlas = ExtResource("3_rhrnk")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x53dr"]
+atlas = ExtResource("3_rhrnk")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf7fm"]
+atlas = ExtResource("3_rhrnk")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yym6b"]
+atlas = ExtResource("3_rhrnk")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60g02"]
+atlas = ExtResource("3_rhrnk")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lut7u"]
+atlas = ExtResource("3_rhrnk")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7hin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhrnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x53dr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf7fm")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yym6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60g02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lut7u")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Shopkeep" instance=ExtResource("1_l7hin")]
+script = ExtResource("2_rhrnk")
+current_dialogue = ""
+dialogue = "sk_d000"
+custom_frames = SubResource("SpriteFrames_l7hin")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"knockback"
+frame_progress = 0.0

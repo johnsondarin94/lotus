@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cok3qbc6k3cip"]
+
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_2eekc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl4sg"]
+atlas = ExtResource("1_2eekc")
+region = Rect2(56, 80, 8, 8)
+
+[node name="Item" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+texture = SubResource("AtlasTexture_jl4sg")
+
+[node name="Item" type="TextureRect" parent="Slot"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 49.0
+offset_bottom = 49.0

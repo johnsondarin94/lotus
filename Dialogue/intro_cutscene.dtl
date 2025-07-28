@@ -1,0 +1,40 @@
+audio "res://Assets/Sound Effects/Bell.wav"
+[wait time="3.0"]
+audio "res://Assets/Sound Effects/Bell.wav"
+[wait time="1.0"]
+character: Awaken
+[wait time="2.0"]
+audio "res://Assets/Sound Effects/Bell.wav"
+[wait time="2.0"]
+character: Awaken, my child
+character: Your journey awaits
+character: You have partaken of the Silent Crescent Tea, your body cleansed, your mind scrubbed, and your spirit purified.
+[signal arg="fade_in"]
+join "Village Elder" center
+"Village Elder": How are you feeling?
+- I feel ready
+	"Village Elder": The tea works wonders.
+- Uugggh
+	"Village Elder": Yes, well....
+	"Village Elder": I suppose that makes sense considering you have been asleep for several days. 
+	"Village Elder": Regardless..
+"Village Elder": With the ritual complete, you are now ready to take the same journey as those before you have.
+"Village Elder": As the seasonal cycle repeats, so too must this journey be undertaken.
+"Village Elder": For deep in the Whispering Woods to the north. Where our forest meet the great mountains, you will find a stream.
+"Village Elder": Follow the stream to the base of the mountain where you will find a cavern.
+"Village Elder": Inside that cavern is where you will find it.
+"Village Elder":  That which has shielded our village for generations, that which casts the misty veil of protection over us, and that which we rely on so heavily for our very survival.
+"Village Elder": The Lotus Flower
+"Village Elder": Follow the path the others have traversed before you and you will be fine.
+"Village Elder": Abandon the path, and not only do you doom yourself...
+"Village Elder": But everyone you love.
+"Village Elder": Not only do the bandits and brigands taint our once peaceful forests, but so too do the purveyors of the dead, the eaters of life, and the stealers of spirits.
+"Village Elder": And so I ask you this.
+"Village Elder": Of cleansed body, clear mind, and pure spirit, are you ready?
+- I am ready
+	audio "res://Assets/Sound Effects/Bell.wav"
+	With the final sound of the bell, the elder's demeanor completely shifts from one of stern wise neutrality to a much more familiar face.
+	A big smile forms across the wrinkles of the elder's face as he embraces you.
+	"Village Elder": You are going to do great
+	"Village Elder": Before you set off, let's head back into town,  I believe the others have a suprise for you. 
+[signal arg="dialogue_ended"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cx0s3cyjusjih"]
+
+[ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_b7txt"]
+[ext_resource type="Script" uid="uid://c04dmmtydn6ck" path="res://gravekeeper.gd" id="2_hbgav"]
+[ext_resource type="Texture2D" uid="uid://cdoeqy1do53hj" path="res://Assets/grave-keeper.png" id="3_hbgav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tif0s"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t03d"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj1bl"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8btpv"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10064"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0bfr"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubxph"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffe7r"]
+atlas = ExtResource("3_hbgav")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7asfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tif0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t03d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj1bl")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8btpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10064")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0bfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubxph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffe7r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Gravekeeper" instance=ExtResource("1_b7txt")]
+script = ExtResource("2_hbgav")
+dialogue = ""
+custom_frames = SubResource("SpriteFrames_7asfo")

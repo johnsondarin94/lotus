@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://detxcmm8hsald"]
+
+[ext_resource type="PackedScene" uid="uid://dxrdikh1y4qf2" path="res://Scenes/interactable.tscn" id="1_6wdhb"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_d6wag"]
+[ext_resource type="Resource" uid="uid://cjdgk3aj7vx6q" path="res://Resources/sword.tres" id="2_kb2vl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb2vl"]
+atlas = ExtResource("2_d6wag")
+region = Rect2(24, 32, 8, 8)
+
+[node name="Sword" instance=ExtResource("1_6wdhb")]
+item_pickup = ExtResource("2_kb2vl")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_kb2vl")
