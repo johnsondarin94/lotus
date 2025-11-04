@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx0s3cyjusjih"]
+[gd_scene load_steps=14 format=3 uid="uid://cx0s3cyjusjih"]
 
 [ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_b7txt"]
-[ext_resource type="Script" uid="uid://c04dmmtydn6ck" path="res://gravekeeper.gd" id="2_hbgav"]
+[ext_resource type="Script" uid="uid://c04dmmtydn6ck" path="res://Scenes/Characters/gravekeeper.gd" id="2_hbgav"]
 [ext_resource type="Texture2D" uid="uid://cdoeqy1do53hj" path="res://Assets/grave-keeper.png" id="3_hbgav"]
+[ext_resource type="Resource" uid="uid://chks43f0f3qdt" path="res://Dialogue/Dialogue/GraveKeeper/gk_d000.dtl" id="3_tif0s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tif0s"]
 atlas = ExtResource("3_hbgav")
@@ -80,5 +81,5 @@ animations = [{
 
 [node name="Gravekeeper" instance=ExtResource("1_b7txt")]
 script = ExtResource("2_hbgav")
-dialogue = ""
+dialogue = ExtResource("3_tif0s")
 custom_frames = SubResource("SpriteFrames_7asfo")

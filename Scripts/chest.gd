@@ -18,22 +18,31 @@ func _ready():
 		open_chest()
 		
 func open_chest():
-	if is_open:
-		print("Empty")
-		return
+	var events : Array = []
+	var timeline : DialogicTimeline = DialogicTimeline.new()
 	
-	var player = Global.get_player_reference()
-	var player_inventory = player.get_inventory()
+	if !is_open:
+		var te_open_chest = DialogicTextEvent.new()
+		te_open_chest.text = "Received item: " + contents[0].item_name
+		events.append(te_open_chest)
+		var player = Global.get_player_reference()
+		var player_inventory = player.get_inventory()
 	
-	for item in contents:
-		player_inventory.add_item(item)
-	contents = []
+		for item in contents:
+			player_inventory.add_item(item)
+		contents = []
+		sprite.texture = OPEN_CHEST_SPRITE
+		is_open = true 
+		WorldState.mark_chest_as_open(chest_id, contents)
+		
+	else: 
+		var te_empty_chest = DialogicTextEvent.new()
+		te_empty_chest.text = "Empty..."
+		events.append(te_empty_chest)
 	
-	print("Contents have been added!")
-	sprite.texture = OPEN_CHEST_SPRITE
-	is_open = true 
-	
-	WorldState.mark_chest_as_open(chest_id, contents)
+	timeline.events = events
+	timeline.events_processed = true
+	Dialogic.start(timeline)
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

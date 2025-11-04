@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cttl4ulf7atvf"]
+
+[ext_resource type="Texture2D" uid="uid://252l7ssog7kv" path="res://Assets/heart_e.png" id="1_qc8lr"]
+
+[node name="HeartEmpty" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Texture" type="TextureRect" parent="Slot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_qc8lr")

@@ -13,6 +13,5 @@ item_id = "e_bow"
 item_name = "Bow"
 item_description = "A simple bow crafted from an ancient wood"
 item_icon = SubResource("AtlasTexture_eaaxm")
-item_stackable = false
 item_equipable = true
 behavior_method = "use_bow"

@@ -10,3 +10,4 @@ Strange symbols flood your vision and screams from beyond drown your ears.
 The pain seemingly lasts forever, yet passes in a near instant.
 As you gather yourself, you notice a flicker/twitch in the Elder's eyes, as if something seems off.
 "Village Elder": Now, you must quickly meet with the Gravekeeper, for he and he alone will imbue you with the mana needed to cast the spell.
+set {VillageElder.engraved_player_arm} = true

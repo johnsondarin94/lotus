@@ -1,9 +1,10 @@
 extends Node2D
 
 @onready var initial_map_path = "res://Scenes/mystwood.tscn"
+@onready var ui_path = "res://Scenes/UI/ui.tscn"
 @onready var player_path = "res://Scenes/Characters/player.tscn"
 
-@export var player_spawn_vector: Vector2 = Vector2(37, 38)
+@export var player_spawn_vector: Vector2
 
 func _ready():
 	# Load in and add map to Main 
@@ -16,9 +17,12 @@ func _ready():
 	# Load in and add player to Main
 	var player = load(player_path).instantiate()
 	add_child(player)
-	print(player)
 	
-	$UI._connect_player(player)
+	var ui = load(ui_path).instantiate()
+	add_child(ui)
+	if OS.get_name() == "Android" || OS.get_name() == "iOS":
+		add_child(ui_mobile)
+		print("hello")
 	
 	if player:
 		var tilemap = map.get_node_or_null("TileMapLayer")

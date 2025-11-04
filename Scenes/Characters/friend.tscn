@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgo6kboei2of6"]
+[gd_scene load_steps=13 format=3 uid="uid://bgo6kboei2of6"]
 
 [ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_354d5"]
+[ext_resource type="Resource" uid="uid://dnh56kufna7o3" path="res://Dialogue/Dialogue/Farryn/f_d000.dtl" id="2_dddc0"]
 [ext_resource type="Texture2D" uid="uid://dk6w8u6kfacac" path="res://Assets/friend.png" id="2_p2q10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dddc0"]
@@ -78,5 +79,5 @@ animations = [{
 }]
 
 [node name="Friend" instance=ExtResource("1_354d5")]
-dialogue = "f_d000"
+dialogue = ExtResource("2_dddc0")
 custom_frames = SubResource("SpriteFrames_iok3l")

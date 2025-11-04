@@ -1,0 +1,11 @@
+if {Gravekeeper.first_time_speaking} == true:
+	GraveKeeper: Rot plagues our dead.
+	GraveKeeper: Food will become an issue soon.
+	set {Gravekeeper.first_time_speaking} = false
+	[end_timeline]
+if {Gravekeeper.imbued_player_arm} == true:
+	GraveKeeper: May the Mystwood breathe within you.
+	[end_timeline]
+if {VillageElder.engraved_player_arm} == true:
+	jump gk_d002/
+jump gk_d001/

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Lotus"
 run/main_scene="uid://yyr5037810l1"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
@@ -29,6 +29,7 @@ directories/dch_directory={
 "Brother": "res://addons/dialogic/Characters/Brother.dch",
 "Farmer": "res://addons/dialogic/Characters/Farmer.dch",
 "Farryn": "res://addons/dialogic/Characters/Farryn.dch",
+"GraveKeeper": "res://addons/dialogic/Characters/GraveKeeper.dch",
 "Parent": "res://addons/dialogic/Characters/Parent.dch",
 "Sister": "res://addons/dialogic/Characters/Sister.dch",
 "Village Elder": "res://addons/dialogic/Characters/Village Elder.dch",
@@ -40,10 +41,19 @@ directories/dch_directory={
 "test_npc": "res://addons/dialogic/Characters/test_npc.dch"
 }
 directories/dtl_directory={
+"Generic": "res://Dialogue/Graves/Generic.dtl",
+"Grave_Mystwood_01": "res://Dialogue/Graves/Grave_Mystwood_01.dtl",
+"Grave_Mystwood_02": "res://Dialogue/Graves/Grave_Mystwood_02.dtl",
+"Grave_Mystwood_03": "res://Dialogue/Graves/Grave_Mystwood_03.dtl",
+"Grave_Mystwood_04": "res://Dialogue/Graves/Grave_Mystwood_04.dtl",
+"Grave_Mystwood_05": "res://Dialogue/Graves/Grave_Mystwood_05.dtl",
+"Grave_Mystwood_06": "res://Dialogue/Graves/Grave_Mystwood_06.dtl",
 "b_d000": "res://Dialogue/Dialogue/Brother/b_d000.dtl",
 "f_d000": "res://Dialogue/Dialogue/Farryn/f_d000.dtl",
 "farm_d000": "res://Dialogue/Dialogue/Farmer/farm_d000.dtl",
-"grave_01_dialogue": "res://Dialogue/grave_01_dialogue.dtl",
+"gk_d000": "res://Dialogue/Dialogue/GraveKeeper/gk_d000.dtl",
+"gk_d001": "res://Dialogue/Dialogue/GraveKeeper/gk_d001.dtl",
+"gk_d002": "res://Dialogue/Dialogue/GraveKeeper/gk_d002.dtl",
 "intro_cutscene": "res://Dialogue/intro_cutscene.dtl",
 "item_pickup": "res://Dialogue/item_pickup.dtl",
 "note_01_dialogue": "res://Dialogue/note_01_dialogue.dtl",
@@ -59,7 +69,7 @@ directories/dtl_directory={
 "sign_mystwood_village_elder": "res://Dialogue/signs/sign_mystwood_village_elder.dtl",
 "sign_mystwood_your_home": "res://Dialogue/signs/sign_mystwood_your_home.dtl",
 "sk_d000": "res://Dialogue/Dialogue/Shopkeep/sk_d000.dtl",
-"test_dialogue": "res://Dialogue/test_dialogue.dtl",
+"test_dialogue": "res://Dialogue/Dialogue/test_dialogue.dtl",
 "ve_d000": "res://Dialogue/Dialogue/VillageElder/ve_d000.dtl",
 "ve_d0000": "res://Dialogue/Dialogue/VillageElder/ve_d0000.dtl",
 "ve_d001": "res://Dialogue/Dialogue/VillageElder/ve_d001.dtl"
@@ -70,6 +80,13 @@ layout/default_style="res://test_style.tres"
 variables={
 "Brother": {
 "first_time_speaking": true
+},
+"Gravekeeper": {
+"first_time_speaking": true,
+"imbued_player_arm": false
+},
+"VillageElder": {
+"engraved_player_arm": false
 },
 "item_name": "UNKNOWN",
 "spoke_to_shopkeep": false
@@ -151,12 +168,12 @@ equip_sword={
 }
 equip_flute={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"location":0,"echo":false,"script":null)
 ]
 }
 equip_bow={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
 ]
 }
 pause={

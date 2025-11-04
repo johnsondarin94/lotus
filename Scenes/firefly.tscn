@@ -76,7 +76,7 @@ region = Rect2(80, 72, 8, 8)
 _data = [Vector2(0.0630631, 0.953461), 0.0, 0.0, 0, 0, Vector2(0.522522, 0.681981), 3.25675, 3.25675, 0, 0, Vector2(0.930931, 0.100239), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_d6ncm"]
+[sub_resource type="CurveTexture" id="CurveTexture_wh1ru"]
 curve = SubResource("Curve_nw82r")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nw82r"]
@@ -85,7 +85,7 @@ emission_shape = 1
 emission_sphere_radius = 19.45
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 9.49949e-08
-velocity_limit_curve = SubResource("CurveTexture_d6ncm")
+velocity_limit_curve = SubResource("CurveTexture_wh1ru")
 hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 turbulence_enabled = true

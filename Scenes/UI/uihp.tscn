@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgqylwbe3tb15"]
+
+[ext_resource type="Script" uid="uid://dws7615gmxdsg" path="res://Scenes/UI/uihp.gd" id="1_4mfac"]
+[ext_resource type="PackedScene" uid="uid://mdpmd6ybabts" path="res://Scenes/UI/heart_full.tscn" id="2_c46md"]
+[ext_resource type="PackedScene" uid="uid://cttl4ulf7atvf" path="res://Scenes/UI/heart_empty.tscn" id="3_c46md"]
+
+[node name="UIHP" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4mfac")
+heart_scene1 = ExtResource("2_c46md")
+
+[node name="HeartFull" parent="." instance=ExtResource("2_c46md")]
+visible = false
+layout_mode = 1
+
+[node name="HeartEmpty" parent="." instance=ExtResource("3_c46md")]
+visible = false
+layout_mode = 1

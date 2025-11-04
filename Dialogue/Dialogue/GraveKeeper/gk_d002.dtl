@@ -1,0 +1,14 @@
+Noticing the newly acquired marks engraved in your arm, the gravekeeper lets out a brief sigh of relief.
+GraveKeeper: The forest is plagued with rot.
+GraveKeeper: Meat extracted from freshly slaughtered animals are riddled with maggots and flesh spoiled.
+GraveKeeper: Our very own intelligent kind wander the forest riddled with worms and rot, their minds no longer their own.
+GraveKeeper: With these engravings in your arm, I can now bestow upon you the magic needed to imbue the already powerful Lotus Flower with the necessary magic to purify our forest and cleanse her inhabitance.
+GraveKeeper: Present your arm to me so that I may lend you the necessary spell.
+You present your arm, bracing for pain not unlike what you experienced with the elder.
+The Gravekeeper grips your arm with tendril like bone and begins.
+Under his breath, the frail gravekeeper begins muttering what appear to be nonsensical ramblings.
+Your arm warms, while a light plume of light begins emitting from beneath his cloak where his arm should be all the way to the tips of his fingers.
+You become acutely aware as he grazes his finger along the symbology inscribed in your now enflamed arm.
+A phrase repeats itself in your head. You can see the phrase in your head but are unsure what it is.
+GraveKeeper: You are ready, retrieve the flower, plant it in the town center, the heart of the Mystwood and imbue the spell with your newly acquired spell. Good luck.
+set {Gravekeeper.imbued_player_arm} = true

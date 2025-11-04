@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var grave_id: String 
+@export var grave_dialogue: DialogicTimeline
 
 var player_in_area: bool = false
 
@@ -18,4 +18,4 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("action") and player_in_area:
 		print("Test")
-		run_dialogue(grave_id + "_dialogue")
+		run_dialogue(grave_dialogue)

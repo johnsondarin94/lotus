@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://nipekbap8urb"]
+
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_gu1py"]
+[ext_resource type="Script" uid="uid://c4onubgop7ca7" path="res://Scripts/inventory_item.gd" id="2_whwab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6fw1"]
+atlas = ExtResource("1_gu1py")
+region = Rect2(88, 72, 8, 8)
+
+[resource]
+script = ExtResource("2_whwab")
+item_id = "u_potion"
+item_name = "Potion"
+item_description = "A vibrant and viscous liquid said to rejuvenate the body. "
+item_icon = SubResource("AtlasTexture_e6fw1")
+item_stackable = true
+item_consumable = true
+behavior_method = "use_potion"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://brb4n3ynftlfp"]
+[gd_scene load_steps=13 format=3 uid="uid://brb4n3ynftlfp"]
 
 [ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_e4lgo"]
+[ext_resource type="Resource" uid="uid://drvskgpma8qge" path="res://Dialogue/Dialogue/Sister/s_d000.dtl" id="2_7s35g"]
 [ext_resource type="Texture2D" uid="uid://qxe5ir1td0xl" path="res://Assets/childf.png" id="2_585i4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s35g"]
@@ -78,4 +79,5 @@ animations = [{
 }]
 
 [node name="Sister" instance=ExtResource("1_e4lgo")]
+dialogue = ExtResource("2_7s35g")
 custom_frames = SubResource("SpriteFrames_j36f8")

@@ -1,8 +1,55 @@
-[gd_scene load_steps=4 format=4 uid="uid://vehy8bokydgw"]
+[gd_scene load_steps=15 format=4 uid="uid://vehy8bokydgw"]
 
 [ext_resource type="TileSet" uid="uid://b2xbal6ibrl4h" path="res://test_map.tres" id="1_d3edt"]
 [ext_resource type="PackedScene" uid="uid://cjf7g3grhqufy" path="res://Scenes/torch.tscn" id="3_difts"]
 [ext_resource type="PackedScene" uid="uid://duqx6j7fdcgu3" path="res://Scenes/door.tscn" id="4_asjqm"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="4_hp3xs"]
+[ext_resource type="Script" uid="uid://dbv8d4ejjmdmg" path="res://Scenes/farmerwanderpath.gd" id="5_e5jd6"]
+[ext_resource type="PackedScene" uid="uid://c587gux1p86om" path="res://Scenes/Characters/farmer.tscn" id="5_hp3xs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5jd6"]
+atlas = ExtResource("4_hp3xs")
+region = Rect2(80, 72, 8, 8)
+
+[sub_resource type="Curve" id="Curve_r6tic"]
+_data = [Vector2(0.0630631, 0.953461), 0.0, 0.0, 0, 0, Vector2(0.522522, 0.681981), 3.25675, 3.25675, 0, 0, Vector2(0.930931, 0.100239), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d6ncm"]
+curve = SubResource("Curve_r6tic")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ehuh0"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+velocity_limit_curve = SubResource("CurveTexture_d6ncm")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+turbulence_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_p5nlb"]
+offsets = PackedFloat32Array(0, 0.002849, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.022792, 0.022792, 0.022792, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2dc8t"]
+gradient = SubResource("Gradient_p5nlb")
+fill = 1
+fill_from = Vector2(0.542735, 0.495726)
+fill_to = Vector2(0.354701, 0.376068)
+
+[sub_resource type="Curve2D" id="Curve2D_r6tic"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 101.556, 163, 0, 0, 0, 0, 146.778, 174, 0, 0, 0, 0, 167.333, 192, 0, 0, 0, 0, 189.944, 192, 0, 0, 0, 0, 188.917, 153, 0, 0, 0, 0, 199.194, 154, 0, 0, 0, 0, 200.222, 182, 0, 0, 0, 0, 215.778, 197.246, 0, 0, 0, 0, 232.165, 185.957, 0, 0, 0, 0, 230.028, 132, 0, 0, 0, 0, 240.306, 131, 0, 0, 0, 0, 241.216, 197.25, 0, 0, 0, 0, 132.389, 187, 0, 0, 0, 0, 91.6518, 189.074, 0, 0, 0, 0, 91.2778, 166, 0, 0, 0, 0, 101.556, 163)
+}
+point_count = 16
+
+[sub_resource type="Curve2D" id="Curve2D_e5jd6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 265, 158, 0, 0, 0, 0, 267, 116, 0, 0, 0, 0, 299, 115, 0, 0, 0, 0, 300, 107, 0, 0, 0, 0, 310, 123, 0, 0, 0, 0, 265, 158)
+}
+point_count = 6
 
 [node name="FarmHome" type="Node2D"]
 
@@ -31,3 +78,109 @@ position = Vector2(252, 180)
 position = Vector2(212, 276)
 spawn_vector = Vector2i(66, 39)
 map_location = "res://Scenes/mystwood.tscn"
+
+[node name="FireflyParticles" type="GPUParticles2D" parent="."]
+position = Vector2(260, 115)
+amount = 2
+texture = SubResource("AtlasTexture_e5jd6")
+lifetime = 0.31
+preprocess = 0.19
+process_material = SubResource("ParticleProcessMaterial_ehuh0")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="FireflyParticles"]
+position = Vector2(0, -16)
+amount = 2
+texture = SubResource("AtlasTexture_e5jd6")
+lifetime = 0.31
+preprocess = 0.19
+process_material = SubResource("ParticleProcessMaterial_ehuh0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="FireflyParticles"]
+position = Vector2(40, -16)
+amount = 3
+texture = SubResource("AtlasTexture_e5jd6")
+lifetime = 0.31
+process_material = SubResource("ParticleProcessMaterial_ehuh0")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="FireflyParticles"]
+position = Vector2(56, -16)
+amount = 2
+texture = SubResource("AtlasTexture_e5jd6")
+lifetime = 0.31
+preprocess = 0.19
+process_material = SubResource("ParticleProcessMaterial_ehuh0")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="FireflyParticles"]
+position = Vector2(16, -16)
+amount = 2
+texture = SubResource("AtlasTexture_e5jd6")
+lifetime = 0.31
+preprocess = 0.19
+process_material = SubResource("ParticleProcessMaterial_ehuh0")
+
+[node name="GPUParticles2D5" type="GPUParticles2D" parent="FireflyParticles"]
+position = Vector2(56, 8)
+amount = 2
+texture = SubResource("AtlasTexture_e5jd6")
+lifetime = 0.31
+preprocess = 0.19
+process_material = SubResource("ParticleProcessMaterial_ehuh0")
+
+[node name="FireflyGlow" type="PointLight2D" parent="."]
+position = Vector2(259, 99)
+scale = Vector2(0.382812, 0.382812)
+energy = 0.5
+texture = SubResource("GradientTexture2D_2dc8t")
+
+[node name="PointLight2D" type="PointLight2D" parent="FireflyGlow"]
+position = Vector2(-1.33514e-05, 41.7959)
+scale = Vector2(0.973255, 0.973255)
+energy = 0.5
+texture = SubResource("GradientTexture2D_2dc8t")
+
+[node name="PointLight2D2" type="PointLight2D" parent="FireflyGlow"]
+position = Vector2(41.7959, 4.76837e-07)
+scale = Vector2(0.80999, 0.80999)
+energy = 0.5
+texture = SubResource("GradientTexture2D_2dc8t")
+
+[node name="PointLight2D3" type="PointLight2D" parent="FireflyGlow"]
+position = Vector2(104.49, 7.62939e-06)
+scale = Vector2(0.947225, 0.947225)
+energy = 0.5
+texture = SubResource("GradientTexture2D_2dc8t")
+
+[node name="PointLight2D4" type="PointLight2D" parent="FireflyGlow"]
+position = Vector2(146.286, -3.8147e-06)
+scale = Vector2(0.973255, 0.973255)
+energy = 0.5
+texture = SubResource("GradientTexture2D_2dc8t")
+
+[node name="PointLight2D5" type="PointLight2D" parent="FireflyGlow"]
+position = Vector2(146.286, 62.6939)
+scale = Vector2(0.973255, 0.973255)
+energy = 0.5
+texture = SubResource("GradientTexture2D_2dc8t")
+
+[node name="FarmerWanderPath" type="Path2D" parent="."]
+position = Vector2(3.18919, 0)
+scale = Vector2(0.972973, 1)
+curve = SubResource("Curve2D_r6tic")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FarmerWanderPath"]
+position = Vector2(101.556, 163)
+rotates = false
+script = ExtResource("5_e5jd6")
+
+[node name="Farmer" parent="FarmerWanderPath/PathFollow2D" instance=ExtResource("5_hp3xs")]
+position = Vector2(-3.8147e-06, -3)
+dialogue = "farm_d000"
+
+[node name="IdleTimer" type="Timer" parent="FarmerWanderPath/PathFollow2D"]
+wait_time = 3.0
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_e5jd6")
+
+[connection signal="timeout" from="FarmerWanderPath/PathFollow2D/IdleTimer" to="FarmerWanderPath/PathFollow2D" method="_on_idle_timer_timeout"]

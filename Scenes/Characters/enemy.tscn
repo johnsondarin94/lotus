@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://d2geu5vgwa8d2" path="res://Resources/bow.tres" id="2_afpow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r876y"]
-size = Vector2(33.3333, 30.8333)
+size = Vector2(25.5, 26.041668)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afpow"]
 atlas = ExtResource("2_1f0kj")
@@ -92,6 +92,7 @@ shape = SubResource("RectangleShape2D_1f0kj")
 one_shot = true
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 1.5
 one_shot = true
 
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]

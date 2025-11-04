@@ -1,5 +1,5 @@
 if {Brother.first_time_speaking} == true:
-	Brother: You seeem a lot like my sister.
+	Brother: You seem a lot like my sister.
 	Brother: My sister is very brave.
 	Brother: Sometimes at night, I can hear my sister outside my window.
 	Brother: It sounds like she's laughing, but not like any laughing I have ever heard.

@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 class_name NPCBase
-const speed = 5
+@export var speed: int = 5
 
 @onready var _animated_sprite2d = $AnimatedSprite2D
 
-@export var dialogue = ''
+@export var dialogue: DialogicTimeline
 @export var custom_frames: SpriteFrames
 
 
@@ -13,9 +13,12 @@ var player_in_area: bool = false
 var is_moving: bool = false
 var in_conversation: bool = false
 
-var player = Global.get_player_reference()
+@onready var player = Global.get_player_reference()
 
 func _ready():
+	if !dialogue:
+		dialogue = preload("res://Dialogue/Dialogue/test_dialogue.dtl")
+		
 	if custom_frames:
 		print("there are custom frames")
 		_animated_sprite2d.frames = custom_frames
@@ -53,7 +56,6 @@ func _on_player_detected_body_entered(body: Node2D) -> void:
 		player_in_area = true 
 
 func _on_player_detected_body_exited(body: Node2D) -> void:
-	
 	if body.has_method("player"):
 		print("Player NOT in area")
 		player_in_area = false

@@ -20,10 +20,15 @@ shape = SubResource("RectangleShape2D_a0av8")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_a0av8")
 
+[node name="HeavyAttackTimer" type="Timer" parent="."]
+
+[node name="HeavyAttackChargeTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HeavyAttackTimer" to="." method="_on_heavy_attack_timer_timeout"]
+[connection signal="timeout" from="HeavyAttackChargeTimer" to="." method="_on_heavy_attack_charge_timer_timeout"]

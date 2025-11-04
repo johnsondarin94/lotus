@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5a2m8qhtdejs"]
+
+[ext_resource type="PackedScene" uid="uid://cx0ntdd57ldtw" path="res://Scenes/Characters/enemy_base.tscn" id="1_c0t5b"]
+[ext_resource type="Script" uid="uid://h8w12mij380t" path="res://Scenes/Characters/Enemies/bandit.gd" id="2_k81rg"]
+[ext_resource type="Script" uid="uid://c4onubgop7ca7" path="res://Scripts/inventory_item.gd" id="3_60wex"]
+[ext_resource type="Resource" uid="uid://cjdgk3aj7vx6q" path="res://Resources/sword.tres" id="4_s3uae"]
+[ext_resource type="Resource" uid="uid://d2geu5vgwa8d2" path="res://Resources/bow.tres" id="5_sktrj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_60wex"]
+
+[node name="Bandit" instance=ExtResource("1_c0t5b")]
+script = ExtResource("2_k81rg")
+possible_equipment = Array[ExtResource("3_60wex")]([ExtResource("4_s3uae"), ExtResource("5_sktrj")])
+
+[node name="Attack_Bubble" type="Area2D" parent="." index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Bubble" index="0"]
+shape = SubResource("CircleShape2D_60wex")
+
+[node name="Attack_Cooldown_Timer" type="Timer" parent="." index="7"]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Attack_Bubble" to="." method="_on_attack_bubble_body_entered"]
+[connection signal="body_exited" from="Attack_Bubble" to="." method="_on_attack_bubble_body_exited"]
+[connection signal="timeout" from="Attack_Cooldown_Timer" to="." method="_on_attack_cooldown_timer_timeout"]

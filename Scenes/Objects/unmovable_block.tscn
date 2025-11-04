@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://camuo60jhsuvq"]
+
+[ext_resource type="Script" uid="uid://ri04gckgw2ao" path="res://Scenes/Objects/unmovable_block.gd" id="1_u6bs3"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_a6c4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3vyn"]
+atlas = ExtResource("2_a6c4b")
+region = Rect2(32, 64, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rie4o"]
+size = Vector2(8, 8)
+
+[node name="UnmovableBlock" type="StaticBody2D"]
+script = ExtResource("1_u6bs3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_f3vyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rie4o")

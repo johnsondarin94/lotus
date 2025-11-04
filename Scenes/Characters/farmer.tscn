@@ -1,5 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://c587gux1p86om"]
+[gd_scene load_steps=11 format=3 uid="uid://c587gux1p86om"]
 
 [ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_kf3if"]
+[ext_resource type="Texture2D" uid="uid://bwkdihm1q6smb" path="res://Assets/farmer.png" id="2_5n5o3"]
+[ext_resource type="Resource" uid="uid://dmn3t6hutramu" path="res://Dialogue/Dialogue/Farmer/farm_d000.dtl" id="2_ibejm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibejm"]
+atlas = ExtResource("2_5n5o3")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnkmg"]
+atlas = ExtResource("2_5n5o3")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja7ou"]
+atlas = ExtResource("2_5n5o3")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br8ay"]
+atlas = ExtResource("2_5n5o3")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq74p"]
+atlas = ExtResource("2_5n5o3")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6tcf"]
+atlas = ExtResource("2_5n5o3")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30oc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibejm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnkmg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja7ou")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br8ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq74p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6tcf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
 
 [node name="Farmer" instance=ExtResource("1_kf3if")]
+dialogue = ExtResource("2_ibejm")
+custom_frames = SubResource("SpriteFrames_30oc3")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"idle"
+frame_progress = 0.0

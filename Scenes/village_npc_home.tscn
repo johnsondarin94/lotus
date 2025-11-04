@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dvyrslh2gvvni"]
+[gd_scene load_steps=7 format=4 uid="uid://dvyrslh2gvvni"]
 
 [ext_resource type="TileSet" uid="uid://b2xbal6ibrl4h" path="res://test_map.tres" id="1_fa4s8"]
 [ext_resource type="PackedScene" uid="uid://cjf7g3grhqufy" path="res://Scenes/torch.tscn" id="3_2o46u"]
 [ext_resource type="PackedScene" uid="uid://duqx6j7fdcgu3" path="res://Scenes/door.tscn" id="3_egah0"]
 [ext_resource type="PackedScene" uid="uid://c0vjk1a0lknj0" path="res://Scenes/candle.tscn" id="4_2o46u"]
+[ext_resource type="PackedScene" uid="uid://bfjy0gpum55lv" path="res://Scenes/Characters/family_parent.tscn" id="5_dk1pk"]
+[ext_resource type="PackedScene" uid="uid://de2h12blo2t2b" path="res://Scenes/Characters/brother.tscn" id="6_3a5f6"]
 
 [node name="VillageNPCHome" type="Node2D"]
 
@@ -40,3 +42,9 @@ map_location = "res://Scenes/mystwood.tscn"
 
 [node name="Candle" parent="." instance=ExtResource("4_2o46u")]
 position = Vector2(253, 123)
+
+[node name="FamilyParent" parent="." instance=ExtResource("5_dk1pk")]
+position = Vector2(148, 137)
+
+[node name="Brother" parent="." instance=ExtResource("6_3a5f6")]
+position = Vector2(181, 84)

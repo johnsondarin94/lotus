@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var health: int = 5
 @export var SPEED: float = 25.0
-@export var wander_tile_range: int = 2
+@export var wander_tile_range: int = 5
 @export var equipment: InventoryItem
 @export var target: Node2D = null
 
@@ -11,7 +11,8 @@ extends CharacterBody2D
 
 
 enum EnemyState {IDLE, WANDERING, CHASING, ATTACKING, DYING}
-const ONE_TILE = 10 # Represents 1 tile 
+const ATTACK_RANGE: float = 10.0 
+const ONE_TILE: float = 10.0# Represents 1 tile 
 
 var player_detected: bool = false
 var current_state: EnemyState = EnemyState.WANDERING
@@ -44,11 +45,10 @@ func set_active_animation(animation_name: String):
 	active_animation = animation_name
 	$AnimatedSprite2D.play(animation_name)
 
-	
-	
 func _physics_process(delta: float) -> void:
-	#velocity = Vector2.ZERO
-	
+	print("Enemy State:", current_state)
+	velocity = Vector2.ZERO
+
 	if is_knocked_back:
 		set_active_animation("knockback")
 		velocity = knockback_velocity
@@ -67,11 +67,11 @@ func _physics_process(delta: float) -> void:
 				set_active_animation("walk")
 			EnemyState.ATTACKING:
 				attack()
-				set_active_animation("walk")
+				set_active_animation("idle")
 			EnemyState.DYING:
 				die()
 	
-	if velocity.length() < 0.1 && EnemyState.WANDERING:
+	if velocity.length() < 0.1 && current_state == EnemyState.WANDERING:
 		change_state(EnemyState.IDLE)
 		set_active_animation("idle")
 		
@@ -87,8 +87,7 @@ func chase_player():
 	if get_equipment().item_name == "Bow":
 		change_state(EnemyState.ATTACKING)
 		
-	if global_position.distance_to(player.global_position) <= ONE_TILE && get_equipment().item_name == "Sword":
-		#velocity = Vector2.ZERO
+	if global_position.distance_to(player.global_position) <= ATTACK_RANGE && get_equipment().item_name == "Sword":
 		change_state(EnemyState.ATTACKING)
 		
 func wander():
@@ -97,7 +96,7 @@ func wander():
 			var dir = (target_position - global_position).normalized()
 			velocity = dir * SPEED
 		else:
-			velocity - Vector2.ZERO
+			velocity = Vector2.ZERO
 
 func pick_new_path():
 	var offset = Vector2(
@@ -106,14 +105,15 @@ func pick_new_path():
 	)
 	target_position = global_position + offset
 	
-func attack():	
+func attack():
+	velocity = Vector2.ZERO
+	#var dir = (player.global_position - global_position).normalized()
+	#global_position -= dir * 0.2
 	if !attack_cooldown_active:
 		equipment.on_use(self)
 		attack_cooldown_active = true
 		$AttackCooldown.start()
-	else:
-		change_state(EnemyState.CHASING)
-		
+	
 func take_damage(damge_amount: int, sword_swing_direction: Vector2):
 	health = health - damge_amount
 	knockback(sword_swing_direction)
@@ -148,9 +148,13 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 func _on_knockback_timer_timeout() -> void:
 	is_knocked_back = false
 
-
 func _on_attack_cooldown_timeout() -> void:
 	attack_cooldown_active = false
+	
+	if player_detected && global_position.distance_to(player.global_position) <= ATTACK_RANGE:
+		change_state(EnemyState.ATTACKING)
+	else:
+		change_state(EnemyState.CHASING)
 	
 func enemy() -> void:
 	pass

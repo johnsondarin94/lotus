@@ -13,6 +13,5 @@ item_id = "e_flute"
 item_name = "Flute"
 item_description = "A peculiar twig with some holes carved through it. It gives off a faint aura. Given to you by the farmer."
 item_icon = SubResource("AtlasTexture_742sf")
-item_stackable = false
 item_equipable = true
 behavior_method = "use_flute"

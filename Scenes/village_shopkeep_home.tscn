@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://di3k1tq21nr12"]
+[gd_scene load_steps=6 format=4 uid="uid://di3k1tq21nr12"]
 
 [ext_resource type="TileSet" uid="uid://b2xbal6ibrl4h" path="res://test_map.tres" id="1_rysyv"]
 [ext_resource type="PackedScene" uid="uid://c0vjk1a0lknj0" path="res://Scenes/candle.tscn" id="2_n2guj"]
 [ext_resource type="PackedScene" uid="uid://duqx6j7fdcgu3" path="res://Scenes/door.tscn" id="4_6lcyi"]
+[ext_resource type="PackedScene" uid="uid://cf5cyh86kk5hk" path="res://Scenes/Characters/shopkeep.tscn" id="5_rysyv"]
 [ext_resource type="PackedScene" uid="uid://cjf7g3grhqufy" path="res://Scenes/torch.tscn" id="6_n2guj"]
 
 [node name="VillageShopKeepHome" type="Node2D"]
@@ -41,3 +42,6 @@ position = Vector2(259, 205)
 
 [node name="Torch4" parent="." instance=ExtResource("6_n2guj")]
 position = Vector2(131, 205)
+
+[node name="Shopkeep" parent="." instance=ExtResource("5_rysyv")]
+position = Vector2(196, 155)

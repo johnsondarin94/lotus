@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cm114clcs1aeq"]
+[gd_scene load_steps=8 format=4 uid="uid://cm114clcs1aeq"]
 
 [ext_resource type="TileSet" uid="uid://b2xbal6ibrl4h" path="res://test_map.tres" id="1_tlnga"]
 [ext_resource type="PackedScene" uid="uid://duqx6j7fdcgu3" path="res://Scenes/door.tscn" id="3_r65ab"]
 [ext_resource type="PackedScene" uid="uid://cjf7g3grhqufy" path="res://Scenes/torch.tscn" id="4_7j6f3"]
 [ext_resource type="Script" uid="uid://b7pfe6qt0nsau" path="res://Scripts/point_light_2d_2.gd" id="5_r65ab"]
+[ext_resource type="PackedScene" uid="uid://bgo6kboei2of6" path="res://Scenes/Characters/friend.tscn" id="5_yflfm"]
 
 [sub_resource type="Gradient" id="Gradient_45ia7"]
 offsets = PackedFloat32Array(0.190883, 0.615385)
@@ -68,3 +69,6 @@ energy = 1.66
 texture = SubResource("GradientTexture2D_yflfm")
 texture_scale = 0.29
 script = ExtResource("5_r65ab")
+
+[node name="Friend" parent="." instance=ExtResource("5_yflfm")]
+position = Vector2(115, 107)

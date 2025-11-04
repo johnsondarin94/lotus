@@ -1,17 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://yyr5037810l1"]
+[gd_scene load_steps=2 format=3 uid="uid://yyr5037810l1"]
 
 [ext_resource type="Script" uid="uid://bv7q2u06q8oea" path="res://Scenes/main.gd" id="1_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dyjh2c8a6cmbw" path="res://Scenes/UI/ui_hotbar.tscn" id="3_8gbba"]
-[ext_resource type="Script" uid="uid://ld8hmklovysl" path="res://Scenes/ui.gd" id="3_jjvhh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kry3j")
-
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("3_jjvhh")
-
-[node name="UIHotbar" parent="UI" instance=ExtResource("3_8gbba")]
-offset_left = 156.0
-offset_top = 585.0
-offset_right = 156.0
-offset_bottom = 585.0
+player_spawn_vector = Vector2(61, 22)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://sld3axofkf1o"]
+[gd_scene load_steps=12 format=3 uid="uid://sld3axofkf1o"]
 
 [ext_resource type="Script" uid="uid://baeslonfolalp" path="res://Scenes/Characters/npc.gd" id="1_pbdkk"]
 [ext_resource type="Texture2D" uid="uid://3bqxsvmtf5tb" path="res://Assets/npc.png" id="2_6usod"]
@@ -26,14 +26,6 @@ region = Rect2(8, 0, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyb3v"]
 atlas = ExtResource("2_6usod")
 region = Rect2(16, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b5or3"]
-atlas = ExtResource("2_6usod")
-region = Rect2(24, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_heyad"]
-atlas = ExtResource("2_6usod")
-region = Rect2(32, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rldw1"]
 animations = [{
@@ -65,16 +57,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xyb3v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b5or3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_heyad")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbtxt"]
@@ -85,12 +71,11 @@ size = Vector2(14.5, 15.5)
 
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_pbdkk")
-dialogue = "test_dialogue"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rldw1")
 animation = &"walk"
-frame_progress = 0.288134
+frame_progress = 0.647499
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

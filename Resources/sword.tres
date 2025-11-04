@@ -13,6 +13,5 @@ item_id = "e_sword"
 item_name = "Sword"
 item_description = "Cheap iron sword, feels like it might break at any moment."
 item_icon = SubResource("AtlasTexture_m8xei")
-item_stackable = false
 item_equipable = true
 behavior_method = "use_sword"

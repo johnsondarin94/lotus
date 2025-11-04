@@ -22,42 +22,34 @@ overrides = {
 [sub_resource type="Resource" id="Resource_42oc8"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("3_8rtdn")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_wrbkp"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("4_dxnmn")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_4kt0y"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("5_xes5f")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_bb1vv"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("6_bfape")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_hud30"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("7_0qc5h")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_cte0r"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("8_answ5")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_g3di1"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("9_t3l83")
-overrides = {}
 
 [sub_resource type="Resource" id="Resource_ijfos"]
 script = ExtResource("2_w32cv")
 scene = ExtResource("10_jpgsd")
-overrides = {}
 
 [resource]
 script = ExtResource("11_3o4gh")
@@ -74,6 +66,4 @@ layer_info = {
 "16": SubResource("Resource_g3di1"),
 "17": SubResource("Resource_ijfos")
 }
-base_overrides = {}
-layers = Array[ExtResource("2_w32cv")]([])
 metadata/_latest_layer = ""
