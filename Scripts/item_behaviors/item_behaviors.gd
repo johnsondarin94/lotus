@@ -1,13 +1,15 @@
 extends Object
 class_name ItemBehaviors
 
-static func use_flute(player: Node):
-	var flute_scene = preload("res://Scenes/flute_play.tscn")
+static var active_sword: Node = null
+
+static func use_flute(player: Node, _optional_param):
+	var flute_scene = preload("res://Scenes/Attacks/flute_play.tscn")
 	var flute_instance = flute_scene.instantiate()
-	var rotatable_degrees = [45.0, 135.0, 45.0, 135.0]
+	var sprite_adjustment: float = 45.0
 	
 	var fireflies = player.get_tree().get_nodes_in_group("fireflies")
-	var flute_spawn_direction = get_user_direction(player, flute_instance, rotatable_degrees)
+	var flute_spawn_direction = get_user_direction(player, flute_instance, sprite_adjustment)
 	
 	for f in fireflies:
 		if f.get_state() == "FOLLOWING":
@@ -18,25 +20,46 @@ static func use_flute(player: Node):
 
 static func use_sword(user: CharacterBody2D, attack_type):
 	var sprite_adjustment: float = 45.0
-	var sword_scene = preload("res://Scenes/Tools/sword_swing.tscn")
-	var sword_swing = sword_scene.instantiate()
+
+	if attack_type == "START_ATTACK":
+		var sword_scene = preload("res://Scenes/Attacks/sword_swing.tscn")
+		var sword_swing = sword_scene.instantiate()
+		var sword_swing_pos = get_user_direction(user, sword_swing, sprite_adjustment)
+		user.add_child(sword_swing)
+		sword_swing.position = user.to_local(sword_swing_pos)
+		sword_swing.start_charge()
+		active_sword = sword_swing
+
+	elif attack_type == "RELEASE_ATTACK" and active_sword and active_sword.is_inside_tree():
+		active_sword.release_attack()
+		active_sword = null
 	
-	var sword_swing_pos = get_user_direction(user, sword_swing, sprite_adjustment)
-		
-	sword_swing.attack_type = attack_type
-	
-	user.add_child(sword_swing)
-	sword_swing.position = user.to_local(sword_swing_pos)
-	
-static func use_bow(user: CharacterBody2D, _optional_params = null):
+static func use_bow(user: CharacterBody2D, attack_type):
 	var sprite_adjustment: float = -45.0
-	var bow_fire_scene = preload("res://Scenes/bow_fire.tscn")
+	var bow_fire_scene = preload("res://Scenes/Attacks/bow_fire.tscn")
 	var bow_fire = bow_fire_scene.instantiate()
 	
 	var bow_spawn_pos = get_user_direction(user, bow_fire, sprite_adjustment)
+	bow_fire.attack_type = attack_type
 	bow_fire.global_position = bow_spawn_pos
 	
 	user.get_tree().current_scene.add_child(bow_fire)
+	
+static func use_dagger(user: CharacterBody2D, attack_type):
+	var sprite_adjustment: float = 45.0
+	var dagger_scene = preload("res://Scenes/Attacks/dagger_stab.tscn")
+	if attack_type == "STAB":
+		var dagger_stab = dagger_scene.instantiate()
+		var dagger_stab_pos = get_user_direction(user, dagger_stab, sprite_adjustment)
+		user.add_child(dagger_stab)
+		dagger_stab.position = user.to_local(dagger_stab_pos)
+	if attack_type == "DASH_ATTACK":
+		for i in range(3):
+			var dagger_stab_rapid = dagger_scene.instantiate()
+			var dagger_stab_pos = get_user_direction(user, dagger_stab_rapid, sprite_adjustment)
+			user.add_child(dagger_stab_rapid)
+			dagger_stab_rapid.position = user.to_local(dagger_stab_pos)
+			
 	
 static func use_potion(user: CharacterBody2D):
 	var current_hp: int = user.get_player_hp()

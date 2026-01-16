@@ -1,0 +1,10 @@
+[signal arg="fade_in"]
+[wait time="2.0"]
+Farryn: W-what are those things?!?
+- Keep Running!
+	player: Save it, just keep running!
+- Rot
+	player: Did you see her face? Mycelium *huff* Rotting *wheeze*
+Farryn: We need to get back to the Elder!
+player: Agreed! Keep pushing!
+[wait time="1.0"]

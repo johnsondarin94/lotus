@@ -1,5 +1,5 @@
 if {Gravekeeper.first_time_speaking} == true:
-	GraveKeeper: Rot plagues our dead.
+	GraveKeeper: Rot plagues our dead much too soon.
 	GraveKeeper: Food will become an issue soon.
 	set {Gravekeeper.first_time_speaking} = false
 	[end_timeline]

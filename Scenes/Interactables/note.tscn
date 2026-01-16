@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnskkh4ptvkn6"]
+
+[ext_resource type="PackedScene" uid="uid://dxrdikh1y4qf2" path="res://Scenes/Interactables/interactable.tscn" id="1_poybh"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_qrx0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfx1k"]
+atlas = ExtResource("2_qrx0g")
+region = Rect2(0, 24, 8, 8)
+
+[node name="Note" instance=ExtResource("1_poybh")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_wfx1k")

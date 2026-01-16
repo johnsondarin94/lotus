@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://jcrd6d42ht6h"]
+
+[ext_resource type="PackedScene" uid="uid://dxrdikh1y4qf2" path="res://Scenes/Interactables/interactable.tscn" id="1_4l8vr"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_nymo1"]
+[ext_resource type="Resource" uid="uid://nipekbap8urb" path="res://Resources/potion.tres" id="2_xi5ht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi5ht"]
+atlas = ExtResource("2_nymo1")
+region = Rect2(88, 72, 8, 8)
+
+[node name="Potion" instance=ExtResource("1_4l8vr")]
+item_pickup = ExtResource("2_xi5ht")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_xi5ht")

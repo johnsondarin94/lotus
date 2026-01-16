@@ -1,0 +1,70 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://hc7ugeg68xxy"]
+
+[ext_resource type="Texture2D" uid="uid://carc40ob6xm4b" path="res://Assets/player-Sheet-Scarf.png" id="1_odhfs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j5df"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d016"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odhfs"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w33hq"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3hjs"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivgpx"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c361"]
+atlas = ExtResource("1_odhfs")
+region = Rect2(16, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j5df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d016")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odhfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w33hq")
+}],
+"loop": true,
+"name": &"knockback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3hjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivgpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c361")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]

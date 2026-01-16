@@ -1,5 +1,19 @@
+if {Sister.first_time_speaking}:
+	Sister: My dad told me you're going to keep us safe from the scary monsters in the forest.
+	Sister: The same ones that took my mom.
+	You notice the young Gnome glance over towards the cemetery.
+	Sister: Here.
+	In her hand rests a piece of freshly tailored fabric.
+	The work is shoddy at best, but you clearly notice the effort and heart she put into it.
+	Sister: I wanted to give it to my mom, before she....
+	Tears begin welling in her eyes.
+	Sister: ... I want you to have it. I hope it keeps you warm.
+	set {Sister.first_time_speaking} = false
+	Received Item: Scarf
+	[signal arg="scarf"]
+	[end_timeline]
 Sister: At night I like to sneak outside and chase the fireflies.
-Sister: There are so many of them to catch. 
+Sister: There are so many of them to catch.
 Sister: When I wake up the next morning, my head kind of hurts.
 Sister: Erhm...
 Sister: Don't tell my dad okay?

@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c587gux1p86om"]
+[gd_scene load_steps=10 format=3 uid="uid://c587gux1p86om"]
 
 [ext_resource type="PackedScene" uid="uid://sld3axofkf1o" path="res://Scenes/Characters/npc_base.tscn" id="1_kf3if"]
 [ext_resource type="Texture2D" uid="uid://bwkdihm1q6smb" path="res://Assets/farmer.png" id="2_5n5o3"]
-[ext_resource type="Resource" uid="uid://dmn3t6hutramu" path="res://Dialogue/Dialogue/Farmer/farm_d000.dtl" id="2_ibejm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibejm"]
 atlas = ExtResource("2_5n5o3")
@@ -65,9 +64,7 @@ animations = [{
 }]
 
 [node name="Farmer" instance=ExtResource("1_kf3if")]
-dialogue = ExtResource("2_ibejm")
 custom_frames = SubResource("SpriteFrames_30oc3")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"idle"
-frame_progress = 0.0

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://7tg308e60hx1"]
+
+[ext_resource type="Script" uid="uid://fdte487l4aqw" path="res://Scenes/Attacks/dagger_stab.gd" id="1_adod6"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="2_yky6p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmjfv"]
+atlas = ExtResource("2_yky6p")
+region = Rect2(16, 96, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1rjj"]
+size = Vector2(2, 2)
+
+[node name="DaggerStab" type="Area2D"]
+script = ExtResource("1_adod6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nmjfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_h1rjj")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

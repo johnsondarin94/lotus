@@ -14,5 +14,3 @@ item_name = "Coin"
 item_description = "An odd looking coin. Not like anything I have ever seen before."
 item_icon = SubResource("AtlasTexture_e5kyr")
 item_stackable = true
-item_equipable = false
-behavior_method = ""

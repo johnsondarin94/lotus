@@ -1,2 +1,24 @@
+if {Farmer.first_time_speaking}:
+	Farmer: I've spent my life trying to understand the fireflies.
+	Farmer: Beautiful torches of night.
+	Farmer: Did you know they respond to song?
+	Farmer: Play just the right note and you can't get them off of you.
+	The Farmer reaches for something resting on his table.
+	Jars of fireflies rest scattered behind.
+	You notice many of them give off different hues of light.
+	Farmer: During the last seasonal cycle, I journeyed the Old Growth.
+	Farmer: Off the path I could hear a faint humming and a bright light.
+	Farmer: As I approached the source, it became clear that the light was a massive swarm of dancing fireflies,
+	Farmer: and the humming was a simple branch with wind rushing through it.
+	Farmer: With the Forest Mother's blessing I brought it home.
+	Farmer: And now I leave it to you.
+	The Farmer hands you a branch resembling a flute.
+	You notice the farmers attempted wittling to shape it.
+	Farmer: Perhaps it will be of use to you. Perhaps not.
+	Farmer: I expect it back, so be sure today is not your day to receive our Forest Mother's embrace.
+	The Farmer smiles warmly, sighs and returns to his work.
+	[signal arg="flute"]
+	set {Farmer.first_time_speaking} = false
+	
+	[end_timeline]
 Farmer: The fireflies seem more active.
-Farmer: That's odd this time of year.

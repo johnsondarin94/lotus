@@ -1,13 +1,21 @@
 extends Node
-
+# The i that prepends the state string stands for intro
 var opened_chests: Dictionary = {}
 var chest_contents: Dictionary = {}
 var collected_items: Dictionary = {}
 
-var first_conversation: bool = false
-var conversations_had: Dictionary = {"Character": [["conversation_id", "conversation_id1"], "requirements"]
+var state_flags: Dictionary[String, bool] = {
+	"i_forest_escape_completed": false, 
+	"i_cutscene_completed": false,
+	"i_speak_with_child": false, 
 }
 
+func set_state_flags(flag: String, result: bool):
+	state_flags[flag] = result
+
+func get_state_flag(key: String) -> bool:
+	return state_flags.get(key, false)
+	
 func mark_item_as_collected(item_id):
 	collected_items[item_id] = true
 	

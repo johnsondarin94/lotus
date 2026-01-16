@@ -1,40 +1,53 @@
+if {Intro.intro_completed}:
+	[end_timeline]
 audio "res://Assets/Sound Effects/Bell.wav"
 [wait time="3.0"]
 audio "res://Assets/Sound Effects/Bell.wav"
 [wait time="1.0"]
-character: Awaken
+character: Hey! Look! They're moving.
+[wait time="1.0"]
+character: Looks like the tea is starting to wear off.
 [wait time="2.0"]
-audio "res://Assets/Sound Effects/Bell.wav"
+character: Take it easy, you're safe.
+character: Here, let me help you up.
 [wait time="2.0"]
-character: Awaken, my child
-character: Your journey awaits
-character: You have partaken of the Silent Crescent Tea, your body cleansed, your mind scrubbed, and your spirit purified.
+character: There we are..
 [signal arg="fade_in"]
 join "Village Elder" center
 "Village Elder": How are you feeling?
-- I feel ready
-	"Village Elder": The tea works wonders.
+- I feel well rested
+	"Village Elder": The tea contains special properties that revitalizes the mind and body. 
+	"Village Elder": Pair that with the deep sleep it places you in, I would say you got exactly what you needed.
 - Uugggh
 	"Village Elder": Yes, well....
-	"Village Elder": I suppose that makes sense considering you have been asleep for several days. 
+	"Village Elder": I suppose that makes sense considering you have been asleep for several days.
 	"Village Elder": Regardless..
-"Village Elder": With the ritual complete, you are now ready to take the same journey as those before you have.
-"Village Elder": As the seasonal cycle repeats, so too must this journey be undertaken.
-"Village Elder": For deep in the Whispering Woods to the north. Where our forest meet the great mountains, you will find a stream.
-"Village Elder": Follow the stream to the base of the mountain where you will find a cavern.
-"Village Elder": Inside that cavern is where you will find it.
-"Village Elder":  That which has shielded our village for generations, that which casts the misty veil of protection over us, and that which we rely on so heavily for our very survival.
-"Village Elder": The Lotus Flower
-"Village Elder": Follow the path the others have traversed before you and you will be fine.
-"Village Elder": Abandon the path, and not only do you doom yourself...
-"Village Elder": But everyone you love.
-"Village Elder": Not only do the bandits and brigands taint our once peaceful forests, but so too do the purveyors of the dead, the eaters of life, and the stealers of spirits.
-"Village Elder": And so I ask you this.
-"Village Elder": Of cleansed body, clear mind, and pure spirit, are you ready?
+	
+"Village Elder": You have partaken the Silent Crescent Tea, your body cleansed, your mind scrubbed, and your spirit purified.
+"Village Elder": With the ritual complete, you are now ready to pass through the barrier and journey through our once peaceful forest.
+"Village Elder": The forest has been plagued by an unnatural rot.
+"Village Elder": The once living now walk again, lively trees now purtrid, a miasma of rot swims through our forest air.
+"Village Elder": Our forest mother weeps, as do we. 
+"Village Elder": The tea you have taken will limit the effects of this unnatural rot.
+"Village Elder": But will not last long.
+"Village Elder": As the rot grows nearer to our little hamlet so too does the window of opportunity to cleanse our once lively forest.
+"Village Elder": Deep within the old growth to the north,
+"Village Elder": At the heart of our sacred mothers grace,
+"Village Elder": You will find the stream of life that provides the nourishment and vitality our forest needs to thrive.
+"Village Elder": Follow the stream to a pond and you will find it, 
+"Village Elder": The most sacred gift our forest mother graces us with. 
+"Village Elder": The Lotus Flower.
+"Village Elder": Our only opportunity to cleanse the Mystwood of her blight. 
+"Village Elder": Bring the flower back and I will take care of the rest. 
+"Village Elder": As the seasonal cylce marches forward I ask you,
+"Village Elder": Of cleansed mind, body, and spirit, are you ready?
 - I am ready
-	audio "res://Assets/Sound Effects/Bell.wav"
-	With the final sound of the bell, the elder's demeanor completely shifts from one of stern wise neutrality to a much more familiar face.
-	A big smile forms across the wrinkles of the elder's face as he embraces you.
-	"Village Elder": You are going to do great
-	"Village Elder": Before you set off, let's head back into town,  I believe the others have a suprise for you. 
+audio "res://Assets/Sound Effects/Bell.wav"
+With the final sound of the bell, the elder's demeanor shifts from one of stern and wise neutrality to a much more familiar face.
+A smile forms across the wrinkles on the elder's face as he embraces you.
+[wait time="1.0"]
+You notice concern in his eyes.
+"Village Elder": You are going to do great.
+"Village Elder": Before you set off, let's head back into town,  I believe the others have a suprise for you.
+set {Intro.intro_completed} = true
 [signal arg="dialogue_ended"]

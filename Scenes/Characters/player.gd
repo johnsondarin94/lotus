@@ -7,15 +7,16 @@ extends CharacterBody2D
 @export var FRICTION: float = 6.0
 @export var ACCELERATION: float = 10.0
 
-var can_move: bool = true
 
+var can_move: bool = true
+var in_cutscene: bool = false
 var mouse_held: bool = false
 var equipped_item: InventoryItem
 var is_moving: bool = false
 var target_position: Vector2
 var item_in_use: bool = false
 
-var max_hp: int = 15
+var max_hp: int = 5
 var health_points: int = max_hp
 
 var is_knocked_back: bool = false
@@ -48,26 +49,11 @@ func _ready():
 	
 	Dialogic.timeline_started.connect(_on_dialogue_start)
 	Dialogic.timeline_ended.connect(_on_dialogue_end)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+	
+	
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			is_moving = event.pressed
-			
-	if event.is_action_pressed("action"):
-		pass
-				
-			#if click_hold_time >= click_hold_time_threshold:
-				#equipped_item.on_use(self, "HEAVY_ATTACK")
-				
-			#if click_hold_time < click_hold_time_threshold:
-				#equipped_item.on_use(self, "LIGHT_ATTACK")
-				
-			#is_click_and_holding = false	
-			#$ItemInUse.start()
-			#item_in_use = true
-			
-
 	if event.is_action_pressed("equip_sword"):
 		if player_inventory.item_in_inventory("Sword"):
 			equipped_item = player_inventory.equip_item("Sword")
@@ -82,24 +68,63 @@ func _input(event):
 		if player_inventory.item_in_inventory("Bow"):
 			equipped_item = player_inventory.equip_item("Bow")
 			emit_signal("equipped_item_changed", equipped_item)
+		
+	if event.is_action_pressed("equip_dagger"):
+		if player_inventory.item_in_inventory("Dagger"):
+			equipped_item = player_inventory.equip_item("Dagger")
+			emit_signal("equipped_item_changed", equipped_item)
 
 func _process(delta: float) -> void:
-	if is_moving:
-		target_position = get_global_mouse_position()
-	if equipped_item != null && player_inventory.item_in_inventory(equipped_item.item_name) && equipped_item.on_use.is_valid():
+	if equipped_item != null and player_inventory.item_in_inventory(equipped_item.item_name) and equipped_item.on_use.is_valid() and can_move:
 		if item_in_use:
 			return
-		if Input.is_action_pressed("action"):
-			click_hold_time += delta
 			
-			print(click_hold_time)
-	
-		if Input.is_action_just_released("action"):
-			click_hold_time = 0.0
-			equipped_item.on_use(self, "LIGHT_ATTACK")
-			print("Released key")
-	
+		if equipped_item.item_name == "Flute":
+			if Input.is_action_just_pressed("left_click"):
+				#print("Hey you used the ")
+				equipped_item.on_use(self, equipped_item.behavior_method)
+		
+		if equipped_item.item_name == "Sword":
+			if Input.is_action_just_pressed("left_click"):
+				click_hold_time = 0.0
+				is_click_and_holding = true
+				equipped_item.on_use(self, "START_ATTACK")
+
+			if is_click_and_holding and Input.is_action_pressed("left_click"):
+				click_hold_time += delta
+
+			if Input.is_action_just_released("left_click"):
+				is_click_and_holding = false
+				equipped_item.on_use(self, "RELEASE_ATTACK")
+				click_hold_time = 0.0
+				item_in_use = true
+				$ItemInUse.start()
+		
+		if equipped_item.item_name == "Bow":
+			if Input.is_action_just_pressed("left_click"):
+				equipped_item.on_use(self, "SINGLE_SHOT")
+				item_in_use = true
+				$ItemInUse.start()
+			if Input.is_action_just_pressed("right_click"):
+				equipped_item.on_use(self, "RAPID_FIRE")
+				item_in_use = true
+				$ItemInUse.start()
+		
+		if equipped_item.item_name == "Dagger":
+			if Input.is_action_just_pressed("left_click"):
+				equipped_item.on_use(self, "STAB")
+				item_in_use = true
+				$ItemInUse.start()
+			if Input.is_action_just_pressed("right_click"):
+				equipped_item.on_use(self, "DASH_ATTACK")
+				item_in_use = true
+				$ItemInUse.start()
+								
 func _physics_process(delta):
+	if in_cutscene:
+		_animated_sprite2d.play("walk")
+		return
+		
 	if !can_move:
 		apply_friction()
 		move_and_slide()
@@ -118,20 +143,18 @@ func _physics_process(delta):
 		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, 300 * delta)
 		if knockback_velocity.length() < 1.0:
 			is_knocked_back = false
-			
-	if is_moving:
-		var direction = (target_position - global_position).normalized()
-		
-		if direction.x < 0: 
-			_animated_sprite2d.flip_h = true
-		else:
-			_animated_sprite2d.flip_h = false
-			
-		if (global_position != target_position):
-			accelerate(direction)
-			_animated_sprite2d.play("walk")
-		
-		
+		move_and_slide()
+		return
+
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	input_vector = input_vector.normalized()
+
+	if input_vector != Vector2.ZERO:
+		accelerate(input_vector)
+		_animated_sprite2d.play("walk")
+		_animated_sprite2d.flip_h = input_vector.x < 0
 	else:
 		apply_friction()
 		_animated_sprite2d.play("idle")
@@ -170,6 +193,26 @@ func _on_dialogue_start():
 	
 func _on_dialogue_end():
 	can_move = true
+
+func lock_movement():
+	can_move = false
+	in_cutscene = true
+	
+func unlock_movement():
+	can_move = true
+	in_cutscene = false
+	
+func _on_dialogic_signal(item_name: String):
+	# TEMP 
+	if !item_name == "res://Resources/%s.tres" % item_name:
+		return
+	# TODO current method is hacky, instead create a dictionary of all resource items and preload them at startup 
+	var item_path: String = "res://Resources/%s.tres" % item_name
+	var item := load(item_path) as InventoryItem
+	player_inventory.add_item(item)
+	print(item_name)
+	if item_name == "scarf":
+		$AnimatedSprite2D.sprite_frames = preload("res://Scenes/Characters/player-scarf.tres")
 	
 func player():
 	pass

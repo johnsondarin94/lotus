@@ -4,4 +4,4 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kry3j")
-player_spawn_vector = Vector2(61, 22)
+player_spawn_vector = Vector2(35, 45)

@@ -1,6 +1,4 @@
-[signal arg="start_dialogue"]
 join test_npc left
 Hello I am a test NPC
 I offer little of value to the actual game and serve little more than to test
-My life has no meaning 
-[signal arg="end_dialogue"]
+My life has no meaning

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://yy8sclxk4530"]
+
+[ext_resource type="Script" uid="uid://c4onubgop7ca7" path="res://Scripts/inventory_item.gd" id="1_6faxl"]
+[ext_resource type="Texture2D" uid="uid://dfyi1s5tmt3cj" path="res://Assets/tileset.png" id="1_jhaej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84x1m"]
+atlas = ExtResource("1_jhaej")
+region = Rect2(16, 96, 8, 8)
+
+[resource]
+script = ExtResource("1_6faxl")
+item_id = "e_dagger"
+item_name = "Dagger"
+item_description = "Lethal blade capable of quick precise damage"
+item_icon = SubResource("AtlasTexture_84x1m")
+item_equipable = true
+behavior_method = "use_dagger"
+metadata/_custom_type_script = "uid://c4onubgop7ca7"

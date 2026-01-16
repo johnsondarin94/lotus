@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=4 uid="uid://clj0r61ijv7f"]
 
 [ext_resource type="TileSet" uid="uid://b2xbal6ibrl4h" path="res://test_map.tres" id="1_js8is"]
-[ext_resource type="PackedScene" uid="uid://nkdu8th14i34" path="res://Scenes/firefly.tscn" id="3_6oin5"]
-[ext_resource type="PackedScene" uid="uid://kix8m0dg6aim" path="res://Scenes/flute.tscn" id="4_qwsrb"]
-[ext_resource type="PackedScene" uid="uid://detxcmm8hsald" path="res://Scenes/sword.tscn" id="5_rjm14"]
+[ext_resource type="PackedScene" uid="uid://nkdu8th14i34" path="res://Scenes/Characters/firefly.tscn" id="3_6oin5"]
+[ext_resource type="PackedScene" uid="uid://kix8m0dg6aim" path="res://Scenes/Tools/flute.tscn" id="4_qwsrb"]
+[ext_resource type="PackedScene" uid="uid://detxcmm8hsald" path="res://Scenes/Tools/sword.tscn" id="5_rjm14"]
 [ext_resource type="AudioStream" uid="uid://cqeoqkikpe04m" path="res://Assets/Ambiance and Music/Nighttime forest with cicadas.wav" id="6_fn6uu"]
-[ext_resource type="PackedScene" uid="uid://duqx6j7fdcgu3" path="res://Scenes/door.tscn" id="6_jlryt"]
-[ext_resource type="PackedScene" uid="uid://cvgf6w54yteka" path="res://Scenes/Characters/enemy.tscn" id="7_fn6uu"]
+[ext_resource type="PackedScene" uid="uid://duqx6j7fdcgu3" path="res://Scenes/Interactables/door.tscn" id="6_jlryt"]
+[ext_resource type="PackedScene" uid="uid://cvgf6w54yteka" path="res://Scenes/Characters/Enemies/enemy.tscn" id="7_fn6uu"]
 [ext_resource type="Resource" uid="uid://cjdgk3aj7vx6q" path="res://Resources/sword.tres" id="8_3ci1y"]
-[ext_resource type="PackedScene" uid="uid://bbm8l31dlxh0l" path="res://Scenes/bow.tscn" id="8_528qs"]
-[ext_resource type="PackedScene" uid="uid://jcrd6d42ht6h" path="res://Scenes/potion.tscn" id="10_iw3jr"]
+[ext_resource type="PackedScene" uid="uid://bbm8l31dlxh0l" path="res://Scenes/Tools/bow.tscn" id="8_528qs"]
+[ext_resource type="PackedScene" uid="uid://jcrd6d42ht6h" path="res://Scenes/Collectables/potion.tscn" id="10_iw3jr"]
 
 [node name="FireflyTestMap" type="Node2D"]
 
@@ -33,7 +33,7 @@ position = Vector2(380, 627)
 [node name="Door" parent="." instance=ExtResource("6_jlryt")]
 position = Vector2(380, 668)
 spawn_vector = Vector2i(60, 21)
-map_location = "res://Scenes/mystwood.tscn"
+map_location = "res://Scenes/Map/mystwood.tscn"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_fn6uu")

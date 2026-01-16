@@ -1,1 +1,14 @@
-Farryn: Good to see you friend.
+if {Farryn.first_time_speaking}:
+	Farryn: Glad to see you awake friend. 
+	Farryn: I was starting to worry you were never going to wake up.
+	[wait time="1.0"]
+	Farryn: You know, I always thought it would be me. 
+	Farryn: The one to save us all. 
+	Farryn: Perhaps my story takes me elsewhere.
+	Farryn: I trust the elder, and I trust you.
+	Farryn: Do us well, I look forward to your stories.
+	Farryn: Head into town, I think the rest of the Mystwood would like to see you off.
+	set {Farryn.first_time_speaking = false}
+
+else:
+	Farryn: May our Lady Mystwood watch over you.

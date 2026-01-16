@@ -1,0 +1,26 @@
+[wait time="2.0"]
+Sister: ....mom?
+Waiting at the entrance, the two children alerted to your return anxiously await the return of their mother.
+[wait time="2.0"]
+Sister: w-Where's my mom?
+You are acutely aware of the hope in her voice immediately shattering.
+........[i]you're a coward[/i].....
+Your heart drops and your throat begins to swell.
+- Tell them of their mother's fate
+	You try and hold your composure and play the role of an adult. But your throat gets the better of you.
+	You can barely look at her. 
+	Images of the decrepit corpse flash rapidly in your head. What was once these children's mother. Now...
+	an Abomination.
+	......[i]You could have saved her[/i].......
+	player: i-I....
+	[wait time="1.0"]
+	player: I'm sorry. 
+	The little girl's glassy eyes erupt as she runs off towards town leaving her little brother.
+	.......[i]But you ran[/i].......
+	Farryn: I'll go after her. Go speak with the Elder. Tell him what we saw.
+	Farryn gestures towards the abandoned child
+	Farryn: Come on little one. 
+	The younger of the two siblings not quite processing the information his sister had inferred, silently follows Farryn back into town. 
+	Leaving you alone with the task of relaying the nightmare you had just been through.
+	[wait time= "1.0"]
+	What exactly did you see?
